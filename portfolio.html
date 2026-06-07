@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio – Dein Name</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#050816;--bg2:#0f1629;--card:#111827;
+    --purple:#7c3aed;--cyan:#06b6d4;--pink:#ec4899;
+    --text:#e2e8f0;--muted:#94a3b8;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px);background:rgba(5,8,22,.7);border-bottom:1px solid rgba(124,58,237,.2)}
+  .logo{font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .nav-links a{color:var(--muted);text-decoration:none;margin-left:2rem;font-size:.9rem;transition:.3s}
+  .nav-links a:hover{color:var(--cyan)}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(124,58,237,.18) 0%,transparent 70%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.25;animation:float 8s ease-in-out infinite}
+  .orb1{width:400px;height:400px;background:var(--purple);top:-100px;left:-100px;animation-delay:0s}
+  .orb2{width:300px;height:300px;background:var(--cyan);bottom:-80px;right:-80px;animation-delay:3s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+  .hero-content{position:relative;z-index:1}
+  .badge{display:inline-block;padding:.35rem 1rem;border:1px solid rgba(6,182,212,.4);border-radius:999px;font-size:.8rem;color:var(--cyan);margin-bottom:1.5rem;animation:fadeIn .8s ease}
+  h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:800;line-height:1.1;margin-bottom:1rem}
+  .gradient-text{background:linear-gradient(135deg,#fff 0%,var(--purple) 50%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .typewriter{color:var(--cyan);border-right:2px solid var(--cyan);padding-right:4px;animation:blink .75s step-end infinite}
+  @keyframes blink{50%{border-color:transparent}}
+  .hero-sub{color:var(--muted);font-size:1.1rem;max-width:500px;margin:0 auto 2.5rem}
+  .btn-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .btn{padding:.75rem 1.8rem;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;text-decoration:none;transition:.3s}
+  .btn-primary{background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;border:none;box-shadow:0 0 30px rgba(124,58,237,.4)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 45px rgba(124,58,237,.6)}
+  .btn-outline{background:transparent;border:1px solid rgba(148,163,184,.3);color:var(--text)}
+  .btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
+
+  /* SECTIONS */
+  section{padding:5rem 2rem}
+  .section-title{text-align:center;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:.75rem}
+  .section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--purple),var(--cyan));margin:.75rem auto 3rem;border-radius:2px}
+  .container{max-width:1100px;margin:0 auto}
+
+  /* ABOUT */
+  #about{background:var(--bg2)}
+  .about-grid{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center}
+  .avatar{width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:5rem;margin:0 auto;box-shadow:0 0 40px rgba(124,58,237,.4)}
+  .about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem}
+
+  /* PROJECTS */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+  .card{background:var(--card);border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:1.5rem;transition:.3s;position:relative;overflow:hidden}
+  .card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.05),rgba(6,182,212,.05));opacity:0;transition:.3s}
+  .card:hover{transform:translateY(-6px);border-color:rgba(124,58,237,.4);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+  .card:hover::before{opacity:1}
+  .card-icon{font-size:2rem;margin-bottom:1rem}
+  .card h3{font-size:1.1rem;margin-bottom:.5rem}
+  .card p{color:var(--muted);font-size:.9rem;line-height:1.6}
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  .tag{padding:.2rem .7rem;border-radius:999px;font-size:.75rem;background:rgba(124,58,237,.15);color:var(--purple);border:1px solid rgba(124,58,237,.2)}
+
+  /* SKILLS */
+  #skills{background:var(--bg2)}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+  .skill-item{background:var(--card);border-radius:10px;padding:1.2rem;border:1px solid rgba(148,163,184,.08)}
+  .skill-header{display:flex;justify-content:space-between;margin-bottom:.75rem;font-size:.9rem}
+  .skill-pct{color:var(--cyan)}
+  .skill-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+  .skill-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--purple),var(--cyan));transition:width 1.5s ease;width:0}
+
+  /* CONTACT */
+  .contact-box{max-width:600px;margin:0 auto;background:var(--card);border-radius:16px;padding:2.5rem;border:1px solid rgba(148,163,184,.1)}
+  .input-group{margin-bottom:1.2rem}
+  .input-group label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.4rem}
+  .input-group input,.input-group textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:.75rem 1rem;color:var(--text);font-size:.95rem;transition:.3s;resize:vertical;font-family:inherit}
+  .input-group input:focus,.input-group textarea:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,.15)}
+
+  /* FOOTER */
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid rgba(148,163,184,.1)}
+  .socials{display:flex;justify-content:center;gap:1rem;margin-bottom:1rem}
+  .social-link{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid rgba(148,163,184,.15);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.1rem;transition:.3s}
+  .social-link:hover{border-color:var(--cyan);transform:translateY(-3px)}
+
+  @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+  .fade-in.visible{opacity:1;transform:none}
+
+  @media(max-width:768px){
+    .about-grid{grid-template-columns:1fr;text-align:center}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">DN.</div>
+  <div class="nav-links">
+    <a href="#about">Über mich</a>
+    <a href="#projects">Projekte</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Kontakt</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-content">
+    <div class="badge">✨ Verfügbar für neue Projekte</div>
+    <h1>
+      <span class="gradient-text">Hallo, ich bin<br>Dein Name</span>
+    </h1>
+    <h2 style="font-size:1.5rem;font-weight:400;color:var(--muted);margin-bottom:1rem">
+      <span class="typewriter" id="tw"></span>
+    </h2>
+    <p class="hero-sub">Ich gestalte und entwickle digitale Erlebnisse, die begeistern – von der Idee bis zum fertigen Produkt.</p>
+    <div class="btn-group">
+      <a href="#projects" class="btn btn-primary">Projekte ansehen</a>
+      <a href="#contact" class="btn btn-outline">Kontakt aufnehmen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container fade-in">
+    <h2 class="section-title">Über mich</h2>
+    <div class="section-line"></div>
+    <div class="about-grid">
+      <div class="avatar">👤</div>
+      <div class="about-text">
+        <p>Hey! Ich bin ein leidenschaftlicher Entwickler und Designer mit Fokus auf moderne Web-Technologien. Ich liebe es, kreative Lösungen für komplexe Probleme zu finden.</p>
+        <p>Mit mehreren Jahren Erfahrung in der Webentwicklung bringe ich Ideen zum Leben – clean, performant und mit Liebe zum Detail.</p>
+        <p>Wenn ich nicht gerade code, fotografiere ich, entdecke neue Musik oder erkunde die Kaffeehäuser Frankfurts ☕</p>
+        <div class="tags" style="margin-top:1.5rem">
+          <span class="tag">📍 Frankfurt</span>
+          <span class="tag">🎓 B.Sc. Informatik</span>
+          <span class="tag">💼 Freelance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title fade-in">Projekte</h2>
+    <div class="section-line"></div>
+    <div class="projects-grid">
+      <div class="card fade-in">
+        <div class="card-icon">🛒</div>
+        <h3>E-Commerce Platform</h3>
+        <p>Vollständige Online-Shop-Lösung mit Warenkorb, Zahlungsabwicklung und Admin-Dashboard.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Stripe</span></div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">📊</div>
+        <h3>Analytics Dashboard</h3>
+        <p>Echtzeit-Datenvisualisierung für Unternehmenskennzahlen mit interaktiven Charts.</p>
+        <div class="tags"><span class="tag">Vue.js</span><span class="tag">D3.js</span><span class="tag">REST API</span></div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">📱</div>
+        <h3>Mobile App UI</h3>
+        <p>Modernes UI/UX-Design für eine Fitness-App mit Gamification-Elementen.</p>
+        <div class="tags"><span class="tag">Figma</span><span class="tag">React Native</span><span class="tag">UI/UX</span></div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">🤖</div>
+        <h3>AI Chat Tool</h3>
+        <p>Intelligenter Kundenservice-Bot mit natürlicher Sprachverarbeitung und CRM-Anbindung.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">OpenAI</span><span class="tag">FastAPI</span></div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">🎨</div>
+        <h3>Design System</h3>
+        <p>Wiederverwendbare Komponentenbibliothek für ein Startup mit vollständiger Dokumentation.</p>
+        <div class="tags"><span class="tag">Storybook</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span></div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">🌍</div>
+        <h3>Travel Blog</h3>
+        <p>Schneller, SEO-optimierter Blog mit CMS-Integration und mehrsprachiger Unterstützung.</p>
+        <div class="tags"><span class="tag">Next.js</span><span class="tag">Sanity</span><span class="tag">i18n</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title fade-in">Skills</h2>
+    <div class="section-line"></div>
+    <div class="skills-grid fade-in">
+      <div class="skill-item"><div class="skill-header"><span>HTML / CSS</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>JavaScript</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>React</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>Node.js</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>UI / UX Design</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span>Python</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title fade-in">Kontakt</h2>
+    <div class="section-line"></div>
+    <div class="contact-box fade-in">
+      <p style="color:var(--muted);text-align:center;margin-bottom:2rem">Hast du ein Projekt im Kopf? Lass uns reden! 🚀</p>
+      <div class="input-group"><label>Name</label><input type="text" placeholder="Max Mustermann"></div>
+      <div class="input-group"><label>E-Mail</label><input type="email" placeholder="max@beispiel.de"></div>
+      <div class="input-group"><label>Nachricht</label><textarea rows="4" placeholder="Erzähl mir von deinem Projekt..."></textarea></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="alert('Danke! (Hier kommt deine echte Formular-Logik hin)')">Nachricht senden ✉️</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="socials">
+    <a class="social-link" href="#" title="GitHub">🐙</a>
+    <a class="social-link" href="#" title="LinkedIn">💼</a>
+    <a class="social-link" href="#" title="Twitter">🐦</a>
+    <a class="social-link" href="#" title="Instagram">📸</a>
+  </div>
+  <p>© 2026 Dein Name. Mit ❤️ gebaut.</p>
+</footer>
+
+<script>
+  // Typewriter
+  const roles = ['Web Developer 💻','UI/UX Designer 🎨','Freelancer 🚀','Problem Solver 🧠'];
+  let ri=0,ci=0,del=false;
+  const tw = document.getElementById('tw');
+  function type(){
+    const cur = roles[ri];
+    tw.textContent = del ? cur.slice(0,--ci) : cur.slice(0,++ci);
+    if(!del && ci===cur.length){setTimeout(()=>{del=true},1800);setTimeout(type,100);return}
+    if(del && ci===0){del=false;ri=(ri+1)%roles.length}
+    setTimeout(type, del?60:100);
+  }
+  type();
+
+  // Scroll animations
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        e.target.querySelectorAll('.skill-fill').forEach(bar=>{
+          bar.style.width = bar.dataset.w+'%';
+        });
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
