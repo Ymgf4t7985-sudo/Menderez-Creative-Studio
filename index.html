@@ -3,29 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEZE Creative Studio — Design, Text & Medien</title>
+<title>Menderez Creative Studio — Design, Text & Medien</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
     --black:#1d1d1f;--white:#fff;--gray:#f5f5f7;--gray2:#e8e8ed;
-    --blue:#0071e3;--blue-d:#0058b3;--muted:#86868b;
+    --blue:#0071e3;--blue-d:#0058b3;--muted:#86868b;--text2:#3a3a3c;
   }
   html{scroll-behavior:smooth}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;
-    color:var(--black);background:var(--white);overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
   a{text-decoration:none;color:inherit}
   .container{max-width:1100px;margin:0 auto;padding:0 2rem}
 
   /* NAV */
   nav{position:fixed;top:0;width:100%;z-index:200;padding:1rem 0;transition:.4s}
   nav .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 2rem}
-  nav.scrolled{background:rgba(255,255,255,.8);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+  nav.scrolled{background:rgba(255,255,255,.82);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
   .logo{font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
-  .nav-links{display:flex;gap:2.2rem;font-size:.92rem;color:var(--black)}
-  .nav-links a{opacity:.8;transition:.25s}
+  .nav-links{display:flex;gap:2rem;font-size:.92rem}
+  .nav-links a{opacity:.75;transition:.25s}
   .nav-links a:hover{opacity:1;color:var(--blue)}
   .nav-cta{padding:.5rem 1.2rem;border-radius:999px;background:var(--black);color:#fff;font-size:.85rem;font-weight:500;transition:.25s}
   .nav-cta:hover{background:var(--blue)}
@@ -39,63 +35,55 @@
   @keyframes drift{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-25px) scale(1.05)}}
   .eyebrow{position:relative;z-index:1;font-size:.95rem;color:var(--blue);font-weight:600;margin-bottom:1rem;opacity:0;animation:fadeUp .8s .1s forwards}
   h1.hero-title{position:relative;z-index:1;font-size:clamp(2.6rem,7vw,5.2rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;opacity:0;animation:fadeUp .8s .25s forwards}
-  .hero-sub{position:relative;z-index:1;font-size:clamp(1.05rem,2vw,1.35rem);color:var(--muted);max-width:620px;margin:1.3rem auto 2.2rem;font-weight:400;opacity:0;animation:fadeUp .8s .4s forwards}
+  .hero-sub{position:relative;z-index:1;font-size:clamp(1rem,2vw,1.3rem);color:var(--muted);max-width:580px;margin:1.3rem auto 2.2rem;font-weight:400;opacity:0;animation:fadeUp .8s .4s forwards}
   @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
   .hero-btns{position:relative;z-index:1;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s .55s forwards}
+  .quote-strip{position:relative;z-index:1;margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--gray2);max-width:700px;width:100%}
+  .quote-strip blockquote{font-size:1.1rem;font-style:italic;color:var(--muted);line-height:1.6}
+  .quote-strip cite{display:block;margin-top:.6rem;font-size:.85rem;font-style:normal;color:#aaa}
+  .q-controls{display:flex;gap:.8rem;justify-content:center;margin-top:1rem}
+  .q-dot{width:7px;height:7px;border-radius:50%;background:var(--gray2);cursor:pointer;transition:.25s}
+  .q-dot.active{background:var(--blue);width:18px;border-radius:4px}
   .btn{padding:.85rem 1.9rem;border-radius:999px;font-size:1rem;font-weight:500;cursor:pointer;border:none;transition:.25s;display:inline-block}
   .btn-primary{background:var(--blue);color:#fff}
   .btn-primary:hover{background:var(--blue-d);transform:translateY(-2px)}
   .btn-ghost{background:var(--gray2);color:var(--black)}
   .btn-ghost:hover{background:#dcdce2}
-  .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bob 2s infinite}
+  .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.78rem;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bob 2s infinite}
   @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 
-  /* GENERIC SECTION */
-  section{padding:6.5rem 0}
+  /* SECTIONS */
+  section{padding:6rem 0}
   .gray-bg{background:var(--gray)}
   .section-head{text-align:center;margin-bottom:3.5rem}
   .section-eyebrow{color:var(--blue);font-weight:600;font-size:.9rem;margin-bottom:.6rem}
-  .section-title{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;letter-spacing:-.02em}
+  .section-title{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:700;letter-spacing:-.02em}
   .section-sub{color:var(--muted);font-size:1.05rem;max-width:540px;margin:.9rem auto 0}
-
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
   .reveal.visible{opacity:1;transform:none}
 
   /* ABOUT */
   .about-wrap{display:grid;grid-template-columns:160px 1fr;gap:3rem;align-items:center}
   .avatar-circle{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#0071e3,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:3.4rem;color:#fff;font-weight:600;box-shadow:0 20px 50px rgba(0,113,227,.25)}
-  .about-text p{font-size:1.08rem;line-height:1.75;color:#3a3a3c;margin-bottom:1rem}
+  .about-text p{font-size:1.05rem;line-height:1.8;color:var(--text2);margin-bottom:1rem}
   @media(max-width:700px){.about-wrap{grid-template-columns:1fr;text-align:center}.avatar-circle{margin:0 auto}}
 
   /* SERVICES */
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.4rem}
   .service-card{background:#fff;border:1px solid var(--gray2);border-radius:20px;padding:2rem 1.7rem;cursor:pointer;transition:.3s;position:relative;display:flex;flex-direction:column;gap:.8rem}
   .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
   .service-card.selected{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,.15);background:#f5fafe}
   .service-icon{font-size:2.1rem}
-  .service-card h3{font-size:1.15rem;font-weight:600}
-  .service-card p{color:var(--muted);font-size:.92rem;line-height:1.55;flex-grow:1}
+  .service-card h3{font-size:1.1rem;font-weight:600}
+  .service-card p{color:var(--muted);font-size:.9rem;line-height:1.55;flex-grow:1}
   .service-flex-badge{display:inline-block;font-size:.72rem;font-weight:600;color:var(--blue);background:rgba(0,113,227,.1);padding:.25rem .65rem;border-radius:999px;width:fit-content}
   .select-indicator{position:absolute;top:1.2rem;right:1.2rem;width:24px;height:24px;border-radius:50%;border:2px solid var(--gray2);display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:.25s;color:transparent}
   .service-card.selected .select-indicator{background:var(--blue);border-color:var(--blue);color:#fff}
 
-  /* QUOTES */
-  #zitate{background:var(--black);color:#fff;text-align:center}
-  #zitate .section-title,#zitate .section-eyebrow{color:#fff}
-  #zitate .section-sub{color:#a1a1a6}
-  .carousel{position:relative;max-width:680px;margin:0 auto;min-height:180px;display:flex;align-items:center;justify-content:center}
-  .quote-slide{position:absolute;inset:0;opacity:0;transform:translateX(30px);transition:opacity .5s ease,transform .5s ease;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 1rem}
-  .quote-slide.active{opacity:1;transform:translateX(0);position:relative}
-  .quote-text{font-size:clamp(1.25rem,3vw,1.7rem);font-weight:500;line-height:1.45;margin-bottom:1.2rem}
-  .quote-text::before{content:'"';margin-right:.1em}
-  .quote-text::after{content:'"';margin-left:.1em}
-  .quote-author{color:#a1a1a6;font-size:.95rem}
-  .carousel-controls{display:flex;justify-content:center;gap:1.5rem;margin-top:2.5rem;align-items:center}
-  .carousel-arrow{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:1.1rem;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center}
-  .carousel-arrow:hover{background:rgba(255,255,255,.25)}
-  .dots{display:flex;gap:.5rem}
-  .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:.25s}
-  .dot.active{background:#fff;width:22px;border-radius:5px}
+  /* HOW */
+  .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
+  .how-card{background:#fff;border:1px solid var(--gray2);border-radius:20px;padding:2rem 1.7rem;display:flex;flex-direction:column;gap:.8rem}
+  .how-card .step-num{font-size:.78rem;font-weight:700;color:var(--blue);letter-spacing:.05em}
 
   /* CONTACT */
   .contact-wrap{max-width:640px;margin:0 auto}
@@ -105,28 +93,70 @@
   .empty-hint{color:var(--muted);font-size:.88rem;align-self:center}
   .form-card{background:#fff;border:1px solid var(--gray2);border-radius:24px;padding:2.5rem;box-shadow:0 30px 60px rgba(0,0,0,.05)}
   .field{margin-bottom:1.3rem}
-  .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.45rem;color:#3a3a3c}
+  .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.45rem;color:var(--text2)}
   .field input,.field textarea{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--gray2);font-size:.98rem;font-family:inherit;background:var(--gray);transition:.2s;resize:vertical}
   .field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(0,113,227,.12)}
-  .submit-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
-  .submit-row .btn{flex:1;text-align:center}
   .form-note{font-size:.8rem;color:var(--muted);margin-top:1rem;text-align:center;line-height:1.5}
   #form-status{margin-top:1rem;font-size:.9rem;text-align:center;display:none;padding:.7rem 1rem;border-radius:10px}
   #form-status.ok{background:#e6f7ec;color:#1a7f37;display:block}
 
-  footer{padding:3rem 0 2.5rem;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--gray2)}
-  footer a{color:var(--blue)}
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem}
+  .faq-item{background:#fff;border:1px solid var(--gray2);border-radius:16px;overflow:hidden}
+  .faq-q{width:100%;background:none;border:none;text-align:left;padding:1.3rem 1.5rem;font-size:1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:inherit;color:var(--black)}
+  .faq-q .arrow{font-size:.85rem;transition:transform .3s;color:var(--muted);flex-shrink:0}
+  .faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .faq-item.open .faq-a{max-height:500px}
+  .faq-a-inner{padding:0 1.5rem 1.3rem;font-size:.95rem;color:var(--text2);line-height:1.75}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--black);color:#a1a1a6;padding:2.2rem 0;font-size:.85rem}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .footer-copy{font-size:.82rem}
+  .footer-copy a{color:#a1a1a6;transition:.2s}
+  .footer-copy a:hover{color:#fff}
+  .footer-links{display:flex;gap:1.5rem}
+  .footer-btn{background:none;border:none;color:#a1a1a6;font-size:.85rem;cursor:pointer;font-family:inherit;padding:0;transition:.2s;display:flex;align-items:center;gap:.4rem}
+  .footer-btn:hover{color:#fff}
+  .footer-btn .fb-icon{font-size:.75rem;opacity:.6}
+
+  /* ===== MODAL ===== */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease}
+  .modal-overlay.open{opacity:1;pointer-events:all}
+  .modal-sheet{background:#fff;width:100%;max-width:680px;max-height:82vh;border-radius:24px 24px 0 0;display:flex;flex-direction:column;transform:translateY(40px);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow:hidden}
+  .modal-overlay.open .modal-sheet{transform:translateY(0)}
+  .modal-handle{width:40px;height:4px;background:var(--gray2);border-radius:2px;margin:1rem auto .25rem;flex-shrink:0}
+  .modal-header{padding:.75rem 1.5rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--gray2);flex-shrink:0}
+  .modal-header h2{font-size:1.15rem;font-weight:700}
+  .modal-close{background:var(--gray);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.2s}
+  .modal-close:hover{background:var(--gray2)}
+  .modal-body{overflow-y:auto;padding:1.5rem;flex:1;-webkit-overflow-scrolling:touch}
+  .modal-body::-webkit-scrollbar{width:5px}
+  .modal-body::-webkit-scrollbar-track{background:transparent}
+  .modal-body::-webkit-scrollbar-thumb{background:var(--gray2);border-radius:3px}
+
+  /* modal content styles */
+  .m-block{margin-bottom:2rem}
+  .m-block:last-child{margin-bottom:0}
+  .m-tag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--blue);background:rgba(0,113,227,.08);padding:.2rem .65rem;border-radius:6px;margin-bottom:.6rem;letter-spacing:.03em}
+  .m-block h3{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--black)}
+  .m-block p,.m-block li{font-size:.9rem;color:var(--text2);line-height:1.75}
+  .m-block ul{padding-left:1.2rem}
+  .m-block a{color:var(--blue)}
+  .law-ref{display:inline-flex;align-items:center;font-size:.75rem;background:rgba(0,113,227,.07);color:var(--blue);padding:.22rem .65rem;border-radius:999px;font-weight:600;margin:.2rem .2rem 0 0}
+  .m-divider{height:1px;background:var(--gray2);margin:1.5rem 0}
 </style>
 </head>
 <body>
 
 <nav id="navbar">
   <div class="nav-inner">
-    <div class="logo">Menderez Schmidt</div>
+    <div class="logo">Menderez Creative Studio</div>
     <div class="nav-links">
       <a href="#leistungen">Leistungen</a>
       <a href="#ueber">Über mich</a>
-      <a href="#zitate">Zitate</a>
+      <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
     </div>
     <a href="#kontakt" class="nav-cta">Anfragen</a>
@@ -139,10 +169,15 @@
   <div class="blob blob2"></div>
   <div class="eyebrow">Design · Text · Video · Web</div>
   <h1 class="hero-title">Menderez Schmidt</h1>
-  <p class="hero-sub">Ich helfe Menschen, ihre Ideen und Visionen klar, durchdacht und mit Stil umzusetzen — flexibel buchbar, ganz nach Ihrem Bedarf.</p>
+  <p class="hero-sub">Ich helfe Menschen und kleinen Unternehmen, ihre Ideen klar, durchdacht und mit Stil umzusetzen — flexibel buchbar, ganz nach deinem Bedarf.</p>
   <div class="hero-btns">
     <a href="#leistungen" class="btn btn-primary">Leistungen entdecken</a>
     <a href="#kontakt" class="btn btn-ghost">Projekt anfragen</a>
+  </div>
+  <div class="quote-strip">
+    <blockquote id="q-text"></blockquote>
+    <cite id="q-author"></cite>
+    <div class="q-controls" id="q-dots"></div>
   </div>
   <div class="scroll-cue">↓ Scrollen</div>
 </section>
@@ -154,9 +189,9 @@
       <div class="avatar-circle">MS</div>
       <div class="about-text">
         <h2 class="section-title" style="margin-bottom:1rem">Über mich</h2>
-        <p>Ich bin Menderez Schmidt — ich arbeite an der Schnittstelle von Gestaltung, Sprache und Bewegtbild. Mein Ansatz: minimalistische und praktikable Ästehetik.</p>
-        <p>Ob ein durchdachtes Design, eine präzise wissenschaftliche Arbeit, ein treffsicheres Skript oder ein Video mit Schnitt und Timing — ich passe mich Ihrem Projekt an, nicht umgekehrt.</p>
-        <p>Besonders kleine Unternehmen begleite ich gerne langfristig: von der ersten Webseite bis zur laufenden Pflege des Internetauftritts.</p>
+        <p>Ich bin Menderez — ich arbeite an der Schnittstelle von Gestaltung, Sprache und Bewegtbild. Mein Ansatz: so wenig wie nötig, so klar wie möglich.</p>
+        <p>Ob ein durchdachtes Design, eine präzise wissenschaftliche Arbeit, ein treffsicheres Skript oder ein Video mit Schnitt und Timing — ich passe mich deinem Projekt an, nicht umgekehrt.</p>
+        <p>Besonders kleine Unternehmen begleite ich gerne langfristig: von der ersten Webseite bis zur laufenden Pflege des gesamten Internetauftritts.</p>
       </div>
     </div>
   </div>
@@ -168,232 +203,321 @@
     <div class="section-head reveal">
       <div class="section-eyebrow">Leistungen</div>
       <h2 class="section-title">Flexibel buchbar.<br>Genau auf dich zugeschnitten.</h2>
-      <p class="section-sub">Wähle eine oder mehrere Leistungen aus — ich melde mich mit einem passenden Vorschlag.</p>
+      <p class="section-sub">Wähle eine oder mehrere Leistungen — ich melde mich mit einem passenden Vorschlag.</p>
     </div>
     <div class="services-grid reveal" id="services-grid"></div>
   </div>
 </section>
 
-<!-- SO FUNKTIONIERT'S -->
-<section>
+<!-- ABLAUF -->
+<section id="ablauf">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Ablauf</div>
       <h2 class="section-title">Drei Schritte zu deinem Projekt</h2>
     </div>
-    <div class="services-grid reveal">
-      <div class="service-card" style="cursor:default">
-        <div class="service-icon">💬</div>
-        <h3>1. Anfrage</h3>
-        <p>Du wählst deine gewünschten Leistungen und beschreibst kurz dein Projekt.</p>
-      </div>
-      <div class="service-card" style="cursor:default">
-        <div class="service-icon">📝</div>
-        <h3>2. Konzept</h3>
-        <p>Ich melde mich mit einem klaren, unverbindlichen Vorschlag inklusive Zeitrahmen. (inkl. Kostenkalkulation)</p>
-      </div>
-      <div class="service-card" style="cursor:default">
-        <div class="service-icon">🚀</div>
-        <h3>3. Umsetzung</h3>
-        <p>Wir setzen das Projekt gemeinsam um — mit regelmäßigen Updates und individuellen Wünschen.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ZITATE -->
-<section id="zitate">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-eyebrow">Inspiration</div>
-      <h2 class="section-title">Worte, die mich prägen</h2>
-    </div>
-    <div class="carousel reveal" id="carousel"></div>
-    <div class="carousel-controls reveal">
-      <button class="carousel-arrow" id="prevBtn">←</button>
-      <div class="dots" id="dots"></div>
-      <button class="carousel-arrow" id="nextBtn">→</button>
+    <div class="how-grid reveal">
+      <div class="how-card"><div class="step-num">SCHRITT 01</div><div style="font-size:2rem">💬</div><h3 style="font-weight:600">Anfrage</h3><p style="color:var(--muted);font-size:.92rem;line-height:1.55">Du wählst deine gewünschten Leistungen und beschreibst kurz dein Projekt.</p></div>
+      <div class="how-card"><div class="step-num">SCHRITT 02</div><div style="font-size:2rem">📝</div><h3 style="font-weight:600">Konzept</h3><p style="color:var(--muted);font-size:.92rem;line-height:1.55">Ich melde mich mit einem klaren, unverbindlichen Vorschlag inklusive Zeitrahmen.</p></div>
+      <div class="how-card"><div class="step-num">SCHRITT 03</div><div style="font-size:2rem">🚀</div><h3 style="font-weight:600">Umsetzung</h3><p style="color:var(--muted);font-size:.92rem;line-height:1.55">Wir setzen das Projekt gemeinsam um — mit regelmäßigen Updates und direktem Kontakt.</p></div>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT -->
-<section id="kontakt">
+<section id="kontakt" class="gray-bg">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eyebrow">Kontakt</div>
       <h2 class="section-title">Lass uns dein Projekt besprechen</h2>
-      <p class="section-sub">Schreib mir direkt — ich antworte in der Regel innerhalb von 1–2 Tagen.</p>
+      <p class="section-sub">Schreib mir direkt — ich antworte in der Regel innerhalb von 1–2 Werktagen.</p>
     </div>
     <div class="contact-wrap reveal">
-      <div class="selected-summary" id="selectedSummary">
-        <span class="empty-hint">Noch keine Leistung ausgewählt — du kannst trotzdem schreiben.</span>
-      </div>
+      <div class="selected-summary" id="selectedSummary"><span class="empty-hint">Noch keine Leistung ausgewählt — du kannst trotzdem schreiben.</span></div>
       <div class="form-card">
         <form id="contactForm">
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Dein Name" required>
-          </div>
-          <div class="field">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" placeholder="du@beispiel.de" required>
-          </div>
-          <div class="field">
-            <label for="message">Nachricht</label>
-            <textarea id="message" rows="5" placeholder="Erzähl mir kurz von deinem Projekt..." required></textarea>
-          </div>
-          <div class="submit-row">
-            <button type="submit" class="btn btn-primary">Per Mail senden ✉️</button>
-          </div>
+          <div class="field"><label for="name">Name</label><input type="text" id="name" placeholder="Dein Name" required></div>
+          <div class="field"><label for="email">E-Mail</label><input type="email" id="email" placeholder="du@beispiel.de" required></div>
+          <div class="field"><label for="message">Nachricht</label><textarea id="message" rows="5" placeholder="Erzähl mir kurz von deinem Projekt..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;text-align:center;margin-top:.5rem">Nachricht senden ✉️</button>
           <div id="form-status"></div>
-          <p class="form-note">Klick öffnet dein E-Mail-Programm mit einer vorausgefüllten Nachricht an <strong>menderez.schmidt@icloud.com</strong> — inklusive deiner Auswahl. Nichts wird ohne dein Absenden verschickt.</p>
+          <p class="form-note">Klick öffnet dein E-Mail-Programm vorausgefüllt an <strong>menderez.schmidt@icloud.com</strong> — nichts wird ohne dein Absenden verschickt.</p>
         </form>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Häufige Fragen</div>
+      <h2 class="section-title">Alles Wichtige auf einen Blick</h2>
+    </div>
+    <div class="faq-list reveal" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Menderez Schmidt · <a href="mailto:menderez.schmidt@icloud.com">menderez.schmidt@icloud.com</a></p>
+  <div class="footer-inner">
+    <div class="footer-copy">
+      © 2026 Menderez Schmidt &nbsp;·&nbsp;
+      <a href="mailto:menderez.schmidt@icloud.com">menderez.schmidt@icloud.com</a>
+    </div>
+    <div class="footer-links">
+      <button class="footer-btn" onclick="openModal('impressum')">
+        <span class="fb-icon">📋</span> Impressum
+      </button>
+      <button class="footer-btn" onclick="openModal('datenschutz')">
+        <span class="fb-icon">🔒</span> Datenschutz
+      </button>
+    </div>
+  </div>
 </footer>
 
+<!-- MODAL: IMPRESSUM -->
+<div class="modal-overlay" id="modal-impressum">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <h2>Impressum</h2>
+      <button class="modal-close" onclick="closeModal('impressum')">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="m-block">
+        <div class="m-tag">§ 5 DDG</div>
+        <h3>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</h3>
+        <p>
+          Menderez Schmidt<br>
+          Löwenbergerstr. 4<br>
+          10315, Berlin<br>
+          Deutschland
+        </p>
+        <br>
+        <p>E-Mail: <a href="mailto:menderez.schmidt@icloud.com">menderez.schmidt@icloud.com</a></p>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">§ 18 Abs. 2 MStV</div>
+        <h3>Verantwortlich für den Inhalt</h3>
+        <p>Menderez Schmidt, [Anschrift wie oben]</p>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">§ 7 DDG · § 7 UWG</div>
+        <h3>Haftung für Inhalte & Links</h3>
+        <p>Als Diensteanbieter bin ich für eigene Inhalte nach § 7 Abs. 1 DDG verantwortlich. Für fremde Inhalte auf verlinkten Seiten übernehme ich keine Haftung, solange kein konkreter Hinweis auf eine Rechtsverletzung vorliegt.</p>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">Urheberrecht</div>
+        <h3>Urheberrecht</h3>
+        <p>Alle auf dieser Seite veröffentlichten Inhalte (Texte, Design, Grafiken) unterliegen dem deutschen Urheberrecht. Vervielfältigung oder Nutzung ohne schriftliche Genehmigung ist nicht gestattet.</p>
+      </div>
+
+      <div class="m-divider"></div>
+      <p style="font-size:.78rem;color:var(--muted)">* Straße & PLZ vor Veröffentlichung ergänzen. Stand: April 2026.</p>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: DATENSCHUTZ -->
+<div class="modal-overlay" id="modal-datenschutz">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <h2>Datenschutzerklärung</h2>
+      <button class="modal-close" onclick="closeModal('datenschutz')">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="m-block">
+        <div class="m-tag">Art. 13 DSGVO</div>
+        <h3>Verantwortlicher</h3>
+        <p>Menderez Schmidt, geschäftliche Anschrift o. g., <a href="mailto:menderez.schmidt@icloud.com">menderez.schmidt@icloud.com</a></p>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">Art. 6 DSGVO · Rechtsgrundlagen</div>
+        <h3>Auf welcher Basis werden Daten verarbeitet?</h3>
+        <p style="margin-bottom:.6rem">Diese Webseite verarbeitet Daten ausschließlich auf Basis folgender Rechtsgrundlagen:</p>
+        <span class="law-ref">Art. 6 I lit. a — Einwilligung</span>
+        <span class="law-ref">Art. 6 I lit. b — Vertragserfüllung</span>
+        <span class="law-ref">Art. 6 I lit. f — Berechtigtes Interesse</span>
+        <span class="law-ref">§ 25 TDDDG — Cookies</span>
+        <br><br>
+        <ul>
+          <li><strong>lit. a:</strong> Einwilligung (z. B. Kontaktformular)</li>
+          <li><strong>lit. b:</strong> Vertragserfüllung / vorvertragliche Maßnahmen</li>
+          <li><strong>lit. f:</strong> Berechtigtes Interesse (z. B. Serverprotokolle)</li>
+          <li><strong>§ 25 TDDDG:</strong> Einwilligung für technisch nicht notwendige Cookies</li>
+        </ul>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">Art. 13 & 14 DSGVO · Kontaktformular</div>
+        <h3>Kontaktformular & E-Mail</h3>
+        <p>Bei Kontaktaufnahme werden übermittelte Daten (Name, E-Mail, Nachricht) ausschließlich zur Bearbeitung der Anfrage genutzt. Es erfolgt keine Weitergabe an Dritte. Löschung erfolgt, sobald die Anfrage abgeschlossen ist und keine gesetzliche Aufbewahrungspflicht besteht.</p>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">§ 25 TDDDG · Hosting</div>
+        <h3>Hosting über Cloudflare Pages</h3>
+        <p>Diese Webseite wird über <strong>Cloudflare Pages</strong> gehostet. Beim Aufruf werden automatisch technische Daten erfasst (IP-Adresse, Browser, Datum/Uhrzeit, aufgerufene Seite) — ausschließlich zur Sicherstellung des Betriebs.<br><br>
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.<br>
+        Datenschutzerklärung Cloudflare: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a></p>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">Art. 15–21 DSGVO · Betroffenenrechte</div>
+        <h3>Deine Rechte</h3>
+        <ul>
+          <li><strong>Auskunft</strong> — Art. 15 DSGVO</li>
+          <li><strong>Berichtigung</strong> — Art. 16 DSGVO</li>
+          <li><strong>Löschung</strong> — Art. 17 DSGVO</li>
+          <li><strong>Einschränkung der Verarbeitung</strong> — Art. 18 DSGVO</li>
+          <li><strong>Datenübertragbarkeit</strong> — Art. 20 DSGVO</li>
+          <li><strong>Widerspruch</strong> — Art. 21 DSGVO</li>
+          <li><strong>Beschwerde bei der Datenschutzbehörde</strong> — Art. 77 DSGVO</li>
+        </ul>
+        <br>
+        <p>Anfragen an: <a href="mailto:menderez.schmidt@icloud.com">menderez.schmidt@icloud.com</a></p>
+      </div>
+
+      <div class="m-divider"></div>
+
+      <div class="m-block">
+        <div class="m-tag">Art. 28 DSGVO · Auftragsverarbeitung</div>
+        <h3>Auftragsverarbeitung (AVV)</h3>
+        <p>Sofern im Rahmen von Dienstleistungen personenbezogene Kundendaten verarbeitet werden (z. B. beim Betreuen einer Unternehmenswebseite), wird ein Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO abgeschlossen.</p>
+      </div>
+
+      <div class="m-divider"></div>
+      <p style="font-size:.78rem;color:var(--muted)">Stand: Juni 2026. Bei Änderungen der Rechtslage wird diese Erklärung aktualisiert.</p>
+
+    </div>
+  </div>
+</div>
+
 <script>
-/* ---------- DATA ---------- */
-const services = [
-  {id:'design', icon:'🎨', title:'Design', desc:'Cleanes, modernes Design für Marken, die auffallen wollen — von Logo bis Layout.'},
-  {id:'texten', icon:'✍️', title:'Texten (Wissenschaftliches Arbeiten)', desc:'Präzise, klar strukturierte Texte — von Hausarbeiten bis Abschlussarbeiten.'},
-  {id:'skripte', icon:'🎬', title:'Skripten', desc:'Durchdachte Skripte für Videos, Präsentationen oder Social-Media-Content.'},
-  {id:'video', icon:'🎞️', title:'Schneiden von Videos', desc:'Professioneller Videoschnitt mit Gefühl für Timing, Rhythmus und Story.'},
-  {id:'web', icon:'🌐', title:'Webseite & Internetauftrittspflege', desc:'Webseiten-Erstellung und laufende Betreuung — speziell für kleine Unternehmen.'}
+/* ---- QUOTES ---- */
+const quotes=[
+  {text:'Design ist nicht nur, wie etwas aussieht — Design ist, wie es funktioniert.',author:'Steve Jobs'},
+  {text:'Gutes Design ist so wenig Design wie möglich.',author:'Dieter Rams'},
+  {text:'Einfachheit ist die höchste Form der Raffinesse.',author:'Leonardo da Vinci'},
+  {text:'Die Details sind nicht die Details — sie machen das Design.',author:'Charles Eames'},
+  {text:'Einfachheit ist der Schlüssel zu wahrer Eleganz.',author:'Coco Chanel'},
+  {text:'Gutes Design ist ehrlich.',author:'Dieter Rams'}
 ];
+let qi=0,qtimer;
+const qtEl=document.getElementById('q-text'),qaEl=document.getElementById('q-author'),qdEl=document.getElementById('q-dots');
+quotes.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' active':'');d.addEventListener('click',()=>goQ(i));qdEl.appendChild(d);});
+function goQ(i){qi=i;qtEl.textContent=quotes[qi].text;qaEl.textContent='— '+quotes[qi].author;document.querySelectorAll('.q-dot').forEach((d,j)=>d.classList.toggle('active',j===qi));}
+goQ(0);
+qtimer=setInterval(()=>goQ((qi+1)%quotes.length),5500);
 
-const quotes = [
-  {text:'Design ist nicht nur, wie etwas aussieht — Design ist, wie es funktioniert.', author:'Steve Jobs'},
-  {text:'Gutes Design ist so wenig Design wie möglich.', author:'Dieter Rams'},
-  {text:'Einfachheit ist der Schlüssel zu wahrer Eleganz.', author:'Coco Chanel'},
-  {text:'Einfachheit ist die höchste Form der Raffinesse.', author:'Leonardo da Vinci'},
-  {text:'Die Details sind nicht die Details — sie machen das Design.', author:'Charles Eames'},
-  {text:'Design ist der stille Botschafter deiner Marke.', author:'Paul Rand'}
+/* ---- SERVICES ---- */
+const services=[
+  {id:'design',icon:'🎨',title:'Design',desc:'Cleanes, modernes Design für Marken, die auffallen wollen — von Logo bis Layout.'},
+  {id:'texten',icon:'✍️',title:'Texten & Wissenschaftliches Arbeiten',desc:'Präzise, klar strukturierte Texte — von Hausarbeiten bis Abschlussarbeiten.'},
+  {id:'skripte',icon:'🎬',title:'Skripten',desc:'Durchdachte Skripte für Videos, Präsentationen oder Social-Media-Content.'},
+  {id:'video',icon:'🎞️',title:'Videoschnitt',desc:'Professioneller Schnitt mit Gefühl für Timing, Rhythmus und Story.'},
+  {id:'web',icon:'🌐',title:'Webseite & Internetauftrittspflege',desc:'Erstellung und laufende Betreuung — speziell für kleine Unternehmen.'}
 ];
-
-let selected = []; // selected service ids
-let quoteIndex = 0;
-let autoplayTimer = null;
-
-/* ---------- RENDER SERVICES ---------- */
-const grid = document.getElementById('services-grid');
+let selected=[];
+const sg=document.getElementById('services-grid');
 services.forEach(s=>{
-  const card = document.createElement('div');
-  card.className = 'service-card';
-  card.dataset.id = s.id;
-  card.innerHTML = `
-    <div class="select-indicator">✓</div>
-    <div class="service-icon">${s.icon}</div>
-    <h3>${s.title}</h3>
-    <p>${s.desc}</p>
-    <span class="service-flex-badge">Flexibel buchbar</span>
-  `;
-  card.addEventListener('click', ()=>toggleService(s.id, card));
-  grid.appendChild(card);
-});
-
-function toggleService(id, card){
-  if(selected.includes(id)){
-    selected = selected.filter(x=>x!==id);
-    card.classList.remove('selected');
-  } else {
-    selected.push(id);
-    card.classList.add('selected');
-  }
-  renderSummary();
-}
-
-function renderSummary(){
-  const box = document.getElementById('selectedSummary');
-  if(selected.length===0){
-    box.innerHTML = '<span class="empty-hint">Noch keine Leistung ausgewählt — du kannst trotzdem schreiben.</span>';
-    return;
-  }
-  box.innerHTML = selected.map(id=>{
-    const s = services.find(x=>x.id===id);
-    return `<span class="chip">${s.title} <button type="button" data-remove="${id}">✕</button></span>`;
-  }).join('');
-  box.querySelectorAll('[data-remove]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const id = btn.dataset.remove;
-      selected = selected.filter(x=>x!==id);
-      document.querySelector(`.service-card[data-id="${id}"]`)?.classList.remove('selected');
-      renderSummary();
-    });
+  const c=document.createElement('div');c.className='service-card';c.dataset.id=s.id;
+  c.innerHTML=`<div class="select-indicator">✓</div><div class="service-icon">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p><span class="service-flex-badge">Flexibel buchbar</span>`;
+  c.addEventListener('click',()=>{
+    if(selected.includes(s.id)){selected=selected.filter(x=>x!==s.id);c.classList.remove('selected');}
+    else{selected.push(s.id);c.classList.add('selected');}
+    renderSummary();
   });
+  sg.appendChild(c);
+});
+function renderSummary(){
+  const box=document.getElementById('selectedSummary');
+  if(!selected.length){box.innerHTML='<span class="empty-hint">Noch keine Leistung ausgewählt — du kannst trotzdem schreiben.</span>';return;}
+  box.innerHTML=selected.map(id=>{const s=services.find(x=>x.id===id);return`<span class="chip">${s.title}<button type="button" data-remove="${id}">✕</button></span>`;}).join('');
+  box.querySelectorAll('[data-remove]').forEach(btn=>btn.addEventListener('click',()=>{
+    const id=btn.dataset.remove;selected=selected.filter(x=>x!==id);
+    document.querySelector(`.service-card[data-id="${id}"]`)?.classList.remove('selected');renderSummary();
+  }));
 }
 
-/* ---------- QUOTE CAROUSEL ---------- */
-const carousel = document.getElementById('carousel');
-const dotsWrap = document.getElementById('dots');
-quotes.forEach((q,i)=>{
-  const slide = document.createElement('div');
-  slide.className = 'quote-slide' + (i===0?' active':'');
-  slide.innerHTML = `<p class="quote-text">${q.text}</p><p class="quote-author">${q.author}</p>`;
-  carousel.appendChild(slide);
-
-  const dot = document.createElement('div');
-  dot.className = 'dot' + (i===0?' active':'');
-  dot.addEventListener('click', ()=>goToQuote(i));
-  dotsWrap.appendChild(dot);
+/* ---- FAQ ---- */
+const faqs=[
+  {q:'Wie läuft die Zusammenarbeit ab?',a:'Nach deiner Anfrage melde ich mich innerhalb von 1–2 Werktagen mit einem unverbindlichen Konzeptvorschlag inklusive Zeitrahmen und Preis.'},
+  {q:'Kann ich mehrere Leistungen kombinieren?',a:'Ja — die meisten Projekte bestehen aus einer Kombination. Das rechnet sich oft sogar günstiger als Einzelbuchungen.'},
+  {q:'Wie werden meine Zugangsdaten geschützt?',a:'Zugangsdaten werden ausschließlich für die vereinbarten Tätigkeiten verwendet und niemals an Dritte weitergegeben. Eine Vertraulichkeitsklausel ist fester Bestandteil jedes Vertrags.'},
+  {q:'Wem gehören die erstellten Inhalte?',a:'Nach vollständiger Bezahlung gehen alle Nutzungsrechte vollständig auf dich über. Was genau übertragen wird, wird im Vertrag klar festgehalten.'},
+  {q:'Wie kann ich die Zusammenarbeit beenden?',a:'Formlos per E-Mail mit der vertraglich vereinbarten Frist (üblich: zum Monatsende) — ohne versteckte Bindungsfristen.'},
+  {q:'Was ist bei der laufenden Auftrittspflege enthalten?',a:'Inhaltliche Aktualisierungen, technische Wartung, Backups, Social-Media-Beiträge und ein monatlicher kurzer Bericht. Sonderwünsche werden transparent extra kalkuliert.'},
+  {q:'Brauche ich als Kunde selbst ein Impressum?',a:'Ja — sobald deine Webseite geschäftsmäßig genutzt wird, bist du nach § 5 DDG dazu verpflichtet. Ich helfe dir beim Erstellen.'},
+  {q:'Was passiert mit meinen Kontaktdaten (DSGVO)?',a:'Übermittelte Daten werden ausschließlich zur Bearbeitung der Anfrage genutzt, nicht weitergegeben und nach Abschluss gelöscht. Rechtsgrundlage: Art. 6 I lit. b DSGVO.'},
+  {q:'Benötigst du eine Vollmacht für meine Kanäle?',a:'Ja, sofern ich direkt in deinem Namen veröffentlichen soll. Die schriftliche Vollmacht legt genau fest, was ich darf — du behältst die volle Kontrolle und kannst jederzeit widerrufen.'}
+];
+const fl=document.getElementById('faq-list');
+faqs.forEach(f=>{
+  const item=document.createElement('div');item.className='faq-item';
+  item.innerHTML=`<button class="faq-q">${f.q}<span class="arrow">▼</span></button><div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>`;
+  item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open'));
+  fl.appendChild(item);
 });
 
-function goToQuote(i){
-  const slides = carousel.querySelectorAll('.quote-slide');
-  const dots = dotsWrap.querySelectorAll('.dot');
-  slides[quoteIndex].classList.remove('active');
-  dots[quoteIndex].classList.remove('active');
-  quoteIndex = (i + quotes.length) % quotes.length;
-  slides[quoteIndex].classList.add('active');
-  dots[quoteIndex].classList.add('active');
-}
-
-document.getElementById('prevBtn').addEventListener('click', ()=>{goToQuote(quoteIndex-1); resetAutoplay();});
-document.getElementById('nextBtn').addEventListener('click', ()=>{goToQuote(quoteIndex+1); resetAutoplay();});
-
-function startAutoplay(){ autoplayTimer = setInterval(()=>goToQuote(quoteIndex+1), 5000); }
-function resetAutoplay(){ clearInterval(autoplayTimer); startAutoplay(); }
-startAutoplay();
-carousel.addEventListener('mouseenter', ()=>clearInterval(autoplayTimer));
-carousel.addEventListener('mouseleave', startAutoplay);
-
-/* ---------- CONTACT FORM (mailto) ---------- */
-document.getElementById('contactForm').addEventListener('submit', function(e){
+/* ---- FORM ---- */
+document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  const serviceNames = selected.map(id => services.find(s=>s.id===id).title).join(', ') || 'Keine Auswahl';
-
-  const subject = encodeURIComponent('Projektanfrage von ' + name);
-  const body = encodeURIComponent(
-    'Name: ' + name + '\n' +
-    'E-Mail: ' + email + '\n' +
-    'Gewünschte Leistungen: ' + serviceNames + '\n\n' +
-    'Nachricht:\n' + message
-  );
-
-  const status = document.getElementById('form-status');
-  status.className = 'ok';
-  status.textContent = 'Dein E-Mail-Programm wird geöffnet — bitte sende die Nachricht von dort ab.';
-
-  window.location.href = `mailto:menderez.schmidt@icloud.com?subject=${subject}&body=${body}`;
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const msg=document.getElementById('message').value.trim();
+  const sNames=selected.map(id=>services.find(s=>s.id===id).title).join(', ')||'Keine Auswahl';
+  const subj=encodeURIComponent('Projektanfrage von '+name);
+  const body=encodeURIComponent('Name: '+name+'\nE-Mail: '+email+'\nLeistungen: '+sNames+'\n\nNachricht:\n'+msg);
+  const st=document.getElementById('form-status');
+  st.className='ok';st.textContent='Dein E-Mail-Programm wird geöffnet — bitte sende die Nachricht von dort ab.';
+  window.location.href=`mailto:menderez.schmidt@icloud.com?subject=${subj}&body=${body}`;
 });
 
-/* ---------- NAV + SCROLL REVEAL ---------- */
-window.addEventListener('scroll', ()=>{
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+/* ---- MODALS ---- */
+function openModal(id){
+  document.getElementById('modal-'+id).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(id){
+  document.getElementById('modal-'+id).classList.remove('open');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('.modal-overlay').forEach(overlay=>{
+  overlay.addEventListener('click',function(e){if(e.target===this){const id=this.id.replace('modal-','');closeModal(id);}});
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));
+  document.body.style.overflow='';
 });
 
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:.12});
+/* ---- NAV + REVEAL ---- */
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>40));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
